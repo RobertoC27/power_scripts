@@ -11,9 +11,9 @@ def shutdown():
 	global allow_shutdown
 	global pressed_time
 	time_delta = abs((datetime.now() - pressed_time).total_seconds())
-	if(allow_shutdown and time_delta <= 20):
+	if(allow_shutdown and time_delta <= 12):
 		subprocess.call(["sudo", "shutdown", "now"])
-	elif(time_delta > 20):
+	elif(time_delta > 12):
 		allow_shutdown = False
 
 def change_state():
