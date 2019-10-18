@@ -8,7 +8,7 @@ allow_shutdown = False
 pressed_time = datetime.now()
 
 def shutdown():
-	time_delta = (datetime.now() - pressed_time).total_seconds()
+	time_delta = abs((datetime.now() - pressed_time).total_seconds())
 	if(allow_shutdown and time_delta <= 20):
 		subprocess.call(["sudo", "shutdown", "now"])
 	elif(time_delta > 20):
